@@ -38,8 +38,9 @@
 class qpage::install {
 
     package { $qpage::_package_name:
-        ensure => $qpage::package_ensure,
-        name   => $qpage::_package_name,
-        before => Service['qpage_service']
+        ensure   => $qpage::package_ensure,
+        name     => $qpage::_package_name,
+        provider => $qpage::package_provider,
+        before   => Service['qpage_service']
     }
 }

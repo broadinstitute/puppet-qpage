@@ -36,16 +36,19 @@ class qpage::params {
 
     case $::osfamily {
         'FreeBSD': {
+            # include ::pkgng
+
             # Service settings
-            $config_group = 'wheel'
-            $config_path  = '/usr/local/etc/qpage.conf'
-            $package_name = 'qpage'
-            $service_name = 'qpage'
+            $config_group     = 'wheel'
+            $config_path      = '/usr/local/etc/qpage.conf'
+            $package_name     = 'qpage'
+            $package_provider = 'pkgng'
+            $service_name     = 'qpage'
 
             # Config settings
-            $pidfile      = '/var/run/qpage'
-            $queuedir     = '/var/spool/qpage'
-            $sigfile      = '/dev/null'
+            $pidfile          = '/var/run/qpage'
+            $queuedir         = '/var/spool/qpage'
+            $sigfile          = '/dev/null'
         }
         default: {
             fail("Unsupported osfamily: ${::osfamily}")

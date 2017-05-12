@@ -60,12 +60,13 @@ class qpage (
     include ::qpage::params
 
     # Service Settings
-    $_config_group   = pick($config_group, $qpage::params::config_group)
-    $_config_mode   = pick($config_mode, $qpage::params::config_mode)
-    $_config_owner   = pick($config_owner, $qpage::params::config_owner)
-    $_config_path   = pick($config_path, $qpage::params::config_path)
-    $_package_name   = pick($package_name, $qpage::params::package_name)
-    $_service_name   = pick($service_name, $qpage::params::service_name)
+    $_config_group    = pick($config_group, $qpage::params::config_group)
+    $_config_mode     = pick($config_mode, $qpage::params::config_mode)
+    $_config_owner    = pick($config_owner, $qpage::params::config_owner)
+    $_config_path     = pick($config_path, $qpage::params::config_path)
+    $_package_name    = pick($package_name, $qpage::params::package_name)
+    $package_provider = $qpage::params::package_provider
+    $_service_name    = pick($service_name, $qpage::params::service_name)
 
     validate_re($package_ensure, '^(absent|held|installed|latest|present|purged)$')
     validate_re($service_ensure, '^(running|stopped)$')
