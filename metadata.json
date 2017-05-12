@@ -1,0 +1,36 @@
+{
+  "name": "puppet-qpage",
+  "version": "0.1.0",
+  "author": "Andrew Teixeira <teixeira@broadinstitute.org>",
+  "summary": "QPage Puppet module",
+  "license": "Apache-2.0",
+  "source": "https://github.com/broadinstitute/puppet-qpage",
+  "project_page": "https://github.com/broadinstitute/puppet-qpage",
+  "issues_url": "https://github.com/broadinstitute/puppet-qpage/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04",
+        "16.04"
+      ]
+    }
+  ],
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 1.0.0 < 4.13.0"}
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">=3.0.0 < 5.0.0"
+    }
+  ]
+}

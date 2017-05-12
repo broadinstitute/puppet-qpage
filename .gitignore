@@ -1,0 +1,15 @@
+.*.sw?
+.bundle
+.DS_Store
+.idea
+.librarian
+.project
+.rspec_system
+.tmp
+.vagrant
+spec/fixtures
+*.swp
+/spec/fixtures/manifests
+/spec/fixtures/modules
+Puppetfile.lock
+Gemfile.lock
