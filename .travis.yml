@@ -14,8 +14,6 @@ branches:
   only:
   - master
 rvm:
-- 1.9.3
-- 2.0.0
 - 2.1.0
 - 2.2
 env:
@@ -27,7 +25,3 @@ matrix:
   exclude:
   - rvm: 2.2
     env: PUPPET_GEM_VERSION="~> 3.8"
-  - rvm: 1.9.3
-    env: PUPPET_GEM_VERSION="~> 4.0"
-  - rvm: 2.0.0
-    env: PUPPET_GEM_VERSION="~> 4.0"

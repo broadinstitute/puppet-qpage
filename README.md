@@ -4,11 +4,10 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
+2. [Module Description - Puppet module to control all aspects of the QPage service](#module-description)
 3. [Setup - The basics of getting started with qpage](#setup)
     * [What qpage affects](#what-qpage-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with qpage](#beginning-with-qpage)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -16,67 +15,126 @@
 
 ## Overview
 
-This module is designed to take care of installing and configuring the Amavisd
-service.
+This module is designed to take care of installing and configuring the QPage service. QPage is an SNPP client/server for sending messages to an alpha-numeric pager.
 
 ## Module Description
 
-This module should correctly setup Amavisd on a given host.  This includes:
+This module should correctly setup QPage on a given host.  This includes:
 
 * Package installation
 * Service management
-* Configuration managment
-* Cron job management
-* Signature definition updates
-* (Optional) ClamAV management and integration
+* Configuration management
 
 ## Setup
 
 ### What qpage affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* packages:
+  * qpage
+* services:
+  * qpage
+* files:
+  * /usr/local/etc/qpage.conf
 
 ### Setup Requirements **OPTIONAL**
 
 librarian-puppet install --verbose --path=/etc/puppetlabs/code/modules
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
-
-### Beginning with qpage
-
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+Note: this module requires the **"zleslie/pkgng** module for controlling packages on FreeBSD.
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+To get a default qpage installation, you can simply include the class with all the defaults:
+
+```puppet
+include ::qpage
+```
+
+The module allows you to remove the service completely if desired as well:
+
+```puppet
+class { 'qpage':
+    config_ensure  => 'absent',
+    package_ensure => 'absent',
+    service_ensure => 'stopped',
+}
+```
+
+All the configuration options in the file are also configurable via options in the main `qpage` class:
+
+```puppet
+class { 'qpage':
+    administrator => 'admin@example.com',
+    forcehostname => false,
+    identtimeout  => 0,
+    modems        => {
+        modem0 => {
+            device  => '/dev/modem',
+            initcmd => 'ATZXXXXX',
+        }
+    },
+    pagers        => {
+        pager1 => {
+            text    => 'UserName',
+            pagerid => '5555551234',
+            service => 'servicename',
+        }
+    },
+    pidfile       => '/var/run/qpage',
+    queuedir      => '/var/spool/qpage',
+    service_defs  => {
+        servicename => {
+            text       => 'ServiceName',
+            device     => 'modem0',
+            phone      => '9,15555559876',
+            identfrom  => 'false',
+            maxmsgsize => '160',
+            baudrate   => '9600',
+            parity     => 'even',
+        }
+    },
+    sigfile       => '/dev/null',
+}
+```
+
+You can also do the same using Hiera:
+
+```yaml
+---
+qpage::administrator: 'admin@example.com'
+qpage::forcehostname: false
+qpage::identtimeout: 0
+qpage::modems:
+    modem0:
+        device: '/dev/modem'
+        initcmd: 'ATZXXXXX'
+qpage::pagers:
+    pager1:
+        text: 'UserName'
+        pagerid: '5555551234'
+        service: 'servicename'
+qpage::pidfile: '/var/run/qpage'
+qpage::queuedir: '/var/spool/qpage'
+qpage::service_defs:
+    servicename:
+        text: 'ServiceName'
+        device: 'modem0'
+        phone: '9,15555559876'
+        identfrom: 'false'
+        maxmsgsize: '160'
+        baudrate: '9600'
+        parity: 'even'
+qpage::sigfile: '/dev/null'
+```
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+All the work for this module typicallly happens through the `qpage` class.  No calls to the subclasses should be necessary as they are all controlled via the main `init.pp` file.
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+This module is currently only supported on FreeBSD systems, since that is the only place I could find this package when writing this module.  If you have any enhancements for different operating systems, bug fixes, etc., pull requests are always welcome.
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+Refer to CONTRIBUTING.md
