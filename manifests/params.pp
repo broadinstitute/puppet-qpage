@@ -17,8 +17,8 @@ class qpage::params {
 
     # Config settings
     $administrator = undef
-    $forcehostname = true
-    $identtimeout  = 0
+    $forcehostname = undef
+    $identtimeout  = '0'
     $include       = undef
     $lockdir       = undef
     $modems        = {}
@@ -29,7 +29,7 @@ class qpage::params {
 
     case $::osfamily {
         'FreeBSD': {
-            # include ::pkgng
+            require ::pkgng
 
             # Service settings
             $config_group     = 'wheel'

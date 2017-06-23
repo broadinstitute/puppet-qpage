@@ -20,7 +20,7 @@ class qpage::service {
         enable    => $::qpage::service_enable,
         name      => $::qpage::_service_name,
         subscribe => [
-            Service['qpage_package'],
+            Package['qpage_package'],
             File['qpage_config'],
         ]
     }

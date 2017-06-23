@@ -161,7 +161,45 @@ class qpage (
     $config_snpptimeout   = pick_default($snpptimeout, $qpage::params::snpptimeout)
     $config_synchronous   = pick_default($synchronous, $qpage::params::synchronous)
 
-    validate_bool($config_forcehostname)
+    if $config_administrator {
+        validate_string($config_administrator)
+    }
+    if $config_forcehostname {
+        validate_string($config_forcehostname)
+    }
+    if $config_identtimeout {
+        validate_string($config_identtimeout)
+    }
+    if $config_include {
+        validate_string($config_include)
+    }
+    if $config_lockdir {
+        validate_string($config_lockdir)
+    }
+    if $config_modems {
+        validate_hash($config_modems)
+    }
+    if $config_pagers {
+        validate_hash($config_pagers)
+    }
+    if $config_pidfile {
+        validate_string($config_pidfile)
+    }
+    if $config_queuedir {
+        validate_string($config_queuedir)
+    }
+    if $config_service_defs {
+        validate_hash($config_service_defs)
+    }
+    if $config_sigfile {
+        validate_string($config_sigfile)
+    }
+    if $config_snpptimeout {
+        validate_string($config_snpptimeout)
+    }
+    if $config_synchronous {
+        validate_string($config_synchronous)
+    }
 
     anchor { 'qpage::begin': } ->
 
