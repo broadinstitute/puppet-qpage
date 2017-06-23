@@ -3,5 +3,8 @@ fixtures:
     stdlib:
       repo: 'puppetlabs/stdlib'
       ref: '4.13.0'
+    pkgng:
+      repo: 'zleslie/pkgng'
+      ref: '1.2.0'
   symlinks:
     qpage: "#{source_dir}"

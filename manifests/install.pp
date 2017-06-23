@@ -26,6 +26,10 @@ class qpage::install {
         fail('You must include the qpage base class before using any qpage defined resources')
     }
 
+    if $::osfamily == 'FreeBSD' {
+        require ::pkgng
+    }
+
     package { 'qpage_package':
         ensure   => $::qpage::package_ensure,
         name     => $::qpage::_package_name,

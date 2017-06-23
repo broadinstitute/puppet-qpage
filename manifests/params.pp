@@ -29,8 +29,6 @@ class qpage::params {
 
     case $::osfamily {
         'FreeBSD': {
-            require ::pkgng
-
             # Service settings
             $config_group     = 'wheel'
             $config_path      = '/usr/local/etc/qpage.conf'
