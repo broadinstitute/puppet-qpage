@@ -104,6 +104,6 @@ class qpage::config {
         owner   => $::qpage::_config_owner,
         group   => $::qpage::_config_group,
         content => template('qpage/qpage.conf.erb'),
-        mode    => $::qpage::config_mode,
+        mode    => $::qpage::_config_mode,
     }
 }
