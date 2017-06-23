@@ -192,7 +192,7 @@ describe 'qpage' do
             }}
 
             it { is_expected.to contain_file('qpage_config').with({
-                'content' => /\n\s+allowpid=true\n\s+baudrate=999\n\s+device=modem99\n\s+dialcmd=dialit\n\s+identfrom=false\n\s+maxmsgsize=100\n\s+maxpages=55\n\s+maxtries=77\n\s+msgprefix=theprefix\n\s+parity=22\n\s+password=pass123\n\s+phone=thephone\n\s+text=TestService/
+                'content' => /service=testservice\n\s+allowpid=true\n\s+baudrate=999\n\s+device=modem99\n\s+dialcmd=dialit\n\s+identfrom=false\n\s+maxmsgsize=100\n\s+maxpages=55\n\s+maxtries=77\n\s+msgprefix=theprefix\n\s+parity=22\n\s+password=pass123\n\s+phone=thephone\n\s+text=TestService/
                 })
             }
         end
