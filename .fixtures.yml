@@ -3,9 +3,8 @@ fixtures:
     stdlib:
       repo: 'puppetlabs/stdlib'
       ref: '4.13.0'
-    # Stay at 0.4.0 until we are only Puppet 4.  >= 1.0 is P4-only
     pkgng:
       repo: 'zleslie/pkgng'
-      ref: '0.4.0'
+      ref: '1.2.0'
   symlinks:
     qpage: "#{source_dir}"

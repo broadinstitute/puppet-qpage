@@ -40,7 +40,7 @@ This module should correctly setup QPage on a given host.  This includes:
 
 librarian-puppet install --verbose --path=/etc/puppetlabs/code/modules
 
-Note: this module requires the **"zleslie/pkgng** module for controlling packages on FreeBSD.
+Note: this module requires the **zleslie/pkgng** module for controlling packages on FreeBSD.
 
 ## Usage
 
