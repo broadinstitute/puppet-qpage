@@ -73,8 +73,16 @@ forcehostname=<%= @forcehostname %>
 identtimeout=<%= @identtimeout %>
 <% end -%>
 
+<% if !@snpptimeout.empty? -%>
+snpptimeout=<%= @snpptimeout %>
+<% end -%>
+
 <% if !@pidfile.empty? -%>
 pidfile=<%= @pidfile %>
+<% end -%>
+
+<% if !@synchronous.empty? -%>
+synchronous=<%= @synchronous %>
 <% end -%>
 
 <% if !@sigfile.empty? -%>
@@ -83,6 +91,10 @@ sigfile=<%= @sigfile %>
 
 <% if !@queuedir.empty? -%>
 queuedir=<%= @queuedir %>
+<% end -%>
+
+<% if !@lockdir.empty? -%>
+lockdir=<%= @lockdir %>
 <% end -%>
 
 #
@@ -125,4 +137,8 @@ pager=<%= pager %>
 <% end -%>
 <% end -%>
 <% end -%>
+<% end -%>
+
+<% if !@include.empty? -%>
+include=<%= @include %>
 <% end -%>
