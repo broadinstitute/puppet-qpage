@@ -1,6 +1,6 @@
 {
   "name": "puppet-qpage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Andrew Teixeira <teixeira@broadinstitute.org>",
   "summary": "QPage Puppet module",
   "license": "Apache-2.0",
