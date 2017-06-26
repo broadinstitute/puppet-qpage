@@ -98,6 +98,24 @@ describe 'qpage' do
                 })
             }
         end
+        context 'with custom groups' do
+            let (:params) {{
+                :groups => {
+                    'testgroup' => {
+                        'text'    => 'TestGroup',
+                        'members' => [
+                            'pager1',
+                            'pager2',
+                        ]
+                    }
+                }
+            }}
+
+            it { is_expected.to contain_file('qpage_config').with({
+                'content' => /group=testgroup\n\s+text=TestGroup\n\s+member=pager1\n\s+member=pager2/
+                })
+            }
+        end
         context 'with custom identtimeout' do
             let (:params) { { :identtimeout => '20' } }
 

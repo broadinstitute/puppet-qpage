@@ -17,15 +17,16 @@ class qpage::params {
 
     # Config settings
     $administrator = undef
-    $forcehostname = undef
+    $forcehostname = 'false'
+    $groups        = {}
     $identtimeout  = '0'
     $include       = undef
     $lockdir       = undef
     $modems        = {}
     $pagers        = {}
     $service_defs  = {}
-    $snpptimeout   = undef
-    $synchronous   = undef
+    $snpptimeout   = '60'
+    $synchronous   = 'true'
 
     case $::osfamily {
         'FreeBSD': {

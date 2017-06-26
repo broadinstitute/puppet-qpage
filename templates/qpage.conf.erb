@@ -64,44 +64,36 @@
 <% if !@administrator.empty? -%>
 administrator=<%= @administrator %>
 <% end -%>
-
 <% if !@forcehostname.empty? -%>
 forcehostname=<%= @forcehostname %>
 <% end -%>
-
 <% if !@identtimeout.empty? -%>
 identtimeout=<%= @identtimeout %>
 <% end -%>
-
 <% if !@snpptimeout.empty? -%>
 snpptimeout=<%= @snpptimeout %>
 <% end -%>
-
 <% if !@pidfile.empty? -%>
 pidfile=<%= @pidfile %>
 <% end -%>
-
 <% if !@synchronous.empty? -%>
 synchronous=<%= @synchronous %>
 <% end -%>
-
 <% if !@sigfile.empty? -%>
 sigfile=<%= @sigfile %>
 <% end -%>
-
 <% if !@queuedir.empty? -%>
 queuedir=<%= @queuedir %>
 <% end -%>
-
 <% if !@lockdir.empty? -%>
 lockdir=<%= @lockdir %>
 <% end -%>
+<% if @modems.is_a?(Hash) -%>
+<% if !@modems.empty? -%>
 
 #
 # Modems
 #
-<% if @modems.is_a?(Hash) -%>
-<% if !@modems.empty? -%>
 <% @modems.sort.each do |modem, options| -%>
 modem=<%= modem %>
 <% options.sort.each do |key, value| -%>
@@ -110,12 +102,12 @@ modem=<%= modem %>
 <% end -%>
 <% end -%>
 <% end -%>
+<% if @service_defs.is_a?(Hash) -%>
+<% if !@service_defs.empty? -%>
 
 #
 # Services
 #
-<% if @service_defs.is_a?(Hash) -%>
-<% if !@service_defs.empty? -%>
 <% @service_defs.sort.each do |service, options| -%>
 service=<%= service %>
 <% options.sort.each do |key, value| -%>
@@ -124,12 +116,12 @@ service=<%= service %>
 <% end -%>
 <% end -%>
 <% end -%>
+<% if @pagers.is_a?(Hash) -%>
+<% if !@pagers.empty? -%>
 
 #
 # Pagers
 #
-<% if @pagers.is_a?(Hash) -%>
-<% if !@pagers.empty? -%>
 <% @pagers.sort.each do |pager, options| -%>
 pager=<%= pager %>
 <% options.sort.each do |key, value| -%>
@@ -138,7 +130,24 @@ pager=<%= pager %>
 <% end -%>
 <% end -%>
 <% end -%>
+<% if @groups.is_a?(Hash) -%>
+<% if !@groups.empty? -%>
 
+#
+# Groups
+#
+<% @groups.sort.each do |group, options| -%>
+group=<%= group %>
+    text=<%= @groups[group]['text'] %>
+<% if @groups[group]['members'].is_a?(Array) -%>
+<% @groups[group]['members'].sort.each do |mem| -%>
+    member=<%= mem %>
+<% end -%>
+<% end -%>
+<% end -%>
+<% end -%>
+<% end -%>
 <% if !@include.empty? -%>
+
 include=<%= @include %>
 <% end -%>

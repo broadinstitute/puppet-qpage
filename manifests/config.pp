@@ -11,6 +11,11 @@
 #   Force the destination address to be qualified with a hostname when
 #   sending e-mail status notification to users.
 #
+# [*qpage::config_groups*]
+#   A hash of hashes to define pager groups.  The keys of the top-level hashes
+#   are the names of the groups.  The sub hashes should contain key/value
+#   pairs with keys consisting of: text and members (which should be an array).
+#
 # [*qpage::config_identtimeout*]
 #   The number of seconds to wait for a reply before giving  up  on RFC-1413
 #   queries.
@@ -85,6 +90,7 @@ class qpage::config {
 
     $administrator = $::qpage::config_administrator
     $forcehostname = $::qpage::config_forcehostname
+    $groups        = $::qpage::config_groups
     $identtimeout  = $::qpage::config_identtimeout
     $include       = $::qpage::config_include
     $lockdir       = $::qpage::config_lockdir
