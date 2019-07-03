@@ -1,7 +1,7 @@
 # optional, this should be the path to where the hiera data config file is in this repo
 # You must update this if your actual hiera data lives inside your module.
 # I only assume you have a separate repository for hieradata and its include in your .fixtures
-hiera_config_file = File.expand_path(File.join(File.dirname(__FILE__), 'fixtures','modules','hieradata', 'hiera.yaml'))
+hiera_config_file = File.expand_path(File.join(File.dirname(__FILE__), 'fixtures', 'modules', 'hieradata', 'hiera.yaml'))
 
 # hiera_config and hiera_data are mutually exclusive contexts.
 
@@ -36,7 +36,7 @@ hiera_config_file = File.expand_path(File.join(File.dirname(__FILE__), 'fixtures
 
 # you cannot use this in addition to any of the hiera_data contexts above
 shared_context :real_hiera_data do
-    let(:hiera_config) do
-       hiera_config_file
-    end
+  let(:hiera_config) do
+    hiera_config_file
+  end
 end

@@ -84,32 +84,32 @@
 #
 class qpage::config {
 
-    if ! defined(Class['qpage']) {
-        fail('You must include the qpage base class before using any qpage defined resources')
-    }
+  if ! defined(Class['qpage']) {
+    fail('You must include the qpage base class before using any qpage defined resources')
+  }
 
-    $administrator = $::qpage::config_administrator
-    $forcehostname = $::qpage::config_forcehostname
-    $groups        = $::qpage::config_groups
-    $identtimeout  = $::qpage::config_identtimeout
-    $include       = $::qpage::config_include
-    $lockdir       = $::qpage::config_lockdir
-    $modems        = $::qpage::config_modems
-    $pagers        = $::qpage::config_pagers
-    $pidfile       = $::qpage::config_pidfile
-    $queuedir      = $::qpage::config_queuedir
-    $service_defs  = $::qpage::config_service_defs
-    $sigfile       = $::qpage::config_sigfile
-    $snpptimeout   = $::qpage::config_snpptimeout
-    $synchronous   = $::qpage::config_synchronous
+  $administrator = $::qpage::config_administrator
+  $forcehostname = $::qpage::config_forcehostname
+  $groups        = $::qpage::config_groups
+  $identtimeout  = $::qpage::config_identtimeout
+  $include       = $::qpage::config_include
+  $lockdir       = $::qpage::config_lockdir
+  $modems        = $::qpage::config_modems
+  $pagers        = $::qpage::config_pagers
+  $pidfile       = $::qpage::config_pidfile
+  $queuedir      = $::qpage::config_queuedir
+  $service_defs  = $::qpage::config_service_defs
+  $sigfile       = $::qpage::config_sigfile
+  $snpptimeout   = $::qpage::config_snpptimeout
+  $synchronous   = $::qpage::config_synchronous
 
-    file { 'qpage_config':
-        ensure  => $::qpage::config_ensure,
-        backup  => false,
-        path    => $::qpage::_config_path,
-        owner   => $::qpage::_config_owner,
-        group   => $::qpage::_config_group,
-        content => template('qpage/qpage.conf.erb'),
-        mode    => $::qpage::_config_mode,
-    }
+  file { 'qpage_config':
+    ensure  => $::qpage::config_ensure,
+    backup  => false,
+    path    => $::qpage::_config_path,
+    owner   => $::qpage::_config_owner,
+    group   => $::qpage::_config_group,
+    content => template('qpage/qpage.conf.erb'),
+    mode    => $::qpage::_config_mode,
+  }
 }

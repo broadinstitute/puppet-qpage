@@ -22,17 +22,17 @@
 # Copyright 2017
 #
 class qpage::install {
-    if ! defined(Class['qpage']) {
-        fail('You must include the qpage base class before using any qpage defined resources')
-    }
+  if ! defined(Class['qpage']) {
+    fail('You must include the qpage base class before using any qpage defined resources')
+  }
 
-    if $::osfamily == 'FreeBSD' {
-        require ::pkgng
-    }
+  if $::osfamily == 'FreeBSD' {
+    require ::pkgng
+  }
 
-    package { 'qpage_package':
-        ensure   => $::qpage::package_ensure,
-        name     => $::qpage::_package_name,
-        provider => $::qpage::package_provider,
-    }
+  package { 'qpage_package':
+    ensure   => $::qpage::package_ensure,
+    name     => $::qpage::_package_name,
+    provider => $::qpage::package_provider,
+  }
 }
