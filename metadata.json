@@ -7,6 +7,16 @@
   "source": "https://github.com/broadinstitute/puppet-qpage",
   "project_page": "https://github.com/broadinstitute/puppet-qpage",
   "issues_url": "https://github.com/broadinstitute/puppet-qpage/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 1.0.0 < 6.0.0"
+    },
+    {
+      "name": "zleslie/pkgng",
+      "version_requirement": ">= 0.4.0 < 3.0.0"
+    }
+  ],
   "operatingsystem_support": [
     {
       "operatingsystem": "Debian",
@@ -24,14 +34,13 @@
       ]
     }
   ],
-  "dependencies": [
-    {"name":"puppetlabs/stdlib","version_requirement":">= 1.0.0 < 5.0.0"},
-    {"name":"zleslie/pkgng","version_requirement":">= 0.4.0 < 2.0.0"}
-  ],
   "requirements": [
     {
       "name": "puppet",
       "version_requirement": ">=3.0.0 < 5.0.0"
     }
-  ]
+  ],
+  "pdk-version": "1.11.1",
+  "template-url": "pdk-default#1.11.1",
+  "template-ref": "1.11.1-0-g2ff8c24"
 }
