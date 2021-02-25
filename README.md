@@ -1,17 +1,23 @@
-# qpage
-[![Build Status](https://travis-ci.org/broadinstitute/puppet-qpage.svg?branch=master)](https://travis-ci.org/broadinstitute/puppet-qpage)
-[![License (Apache 2.0)](https://img.shields.io/badge/license-Apache-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-#### Table of Contents
+# puppet-qpage
 
-1. [Overview](#overview)
-2. [Module Description - Puppet module to control all aspects of the QPage service](#module-description)
-3. [Setup - The basics of getting started with qpage](#setup)
-    * [What qpage affects](#what-qpage-affects)
-    * [Setup requirements](#setup-requirements)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+![checks](https://github.com/broadinstitute/puppet-qpage/workflows/checks/badge.svg?branch=main)
+[![Puppet Forge](https://img.shields.io/puppetforge/dt/broadinstitute/qpage.svg)](https://forge.puppet.com/broadinstitute/qpage)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/broadinstitute/qpage.svg)](https://forge.puppet.com/broadinstitute/qpage)
+[![Puppet Forge](https://img.shields.io/puppetforge/f/broadinstitute/qpage.svg)](https://forge.puppet.com/broadinstitute/qpage)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![codecov](https://codecov.io/gh/broadinstitute/puppet-qpage/branch/main/graph/badge.svg)](https://codecov.io/gh/broadinstitute/puppet-qpage)
+
+## Table of Contents
+
+* [Overview](#overview)
+* [Module Description - Puppet module to control all aspects of the QPage service](#module-description)
+* [Setup - The basics of getting started with qpage](#setup)
+  * [What qpage affects](#what-qpage-affects)
+  * [Setup requirements](#setup-requirements)
+* [Usage - Configuration options and additional functionality](#usage)
+* [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+* [Limitations - OS compatibility, etc.](#limitations)
+* [Development - Guide for contributing to the module](#development)
 
 ## Overview
 
