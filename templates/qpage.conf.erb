@@ -61,34 +61,34 @@
 # All text following a pound sign (#) is ignored.
 #
 
-<% if !@administrator.empty? -%>
+<% if @administrator and !@administrator.empty? -%>
 administrator=<%= @administrator %>
 <% end -%>
-<% if !@forcehostname.empty? -%>
+<% if @forcehostname and !@forcehostname.empty? -%>
 forcehostname=<%= @forcehostname %>
 <% end -%>
-<% if !@identtimeout.empty? -%>
+<% if @identtimeout and !@identtimeout.empty? -%>
 identtimeout=<%= @identtimeout %>
 <% end -%>
-<% if !@snpptimeout.empty? -%>
+<% if @snpptimeout and !@snpptimeout.empty? -%>
 snpptimeout=<%= @snpptimeout %>
 <% end -%>
-<% if !@pidfile.empty? -%>
+<% if @pidfile and !@pidfile.empty? -%>
 pidfile=<%= @pidfile %>
 <% end -%>
-<% if !@synchronous.empty? -%>
+<% if @synchronous and !@synchronous.empty? -%>
 synchronous=<%= @synchronous %>
 <% end -%>
-<% if !@sigfile.empty? -%>
+<% if @sigfile and !@sigfile.empty? -%>
 sigfile=<%= @sigfile %>
 <% end -%>
-<% if !@queuedir.empty? -%>
+<% if @queuedir and !@queuedir.empty? -%>
 queuedir=<%= @queuedir %>
 <% end -%>
-<% if !@lockdir.empty? -%>
+<% if @lockdir and !@lockdir.empty? -%>
 lockdir=<%= @lockdir %>
 <% end -%>
-<% if @modems.is_a?(Hash) -%>
+<% if @modems and @modems.is_a?(Hash) -%>
 <% if !@modems.empty? -%>
 
 #
@@ -102,7 +102,7 @@ modem=<%= modem %>
 <% end -%>
 <% end -%>
 <% end -%>
-<% if @service_defs.is_a?(Hash) -%>
+<% if @service_defs and @service_defs.is_a?(Hash) -%>
 <% if !@service_defs.empty? -%>
 
 #
@@ -116,7 +116,7 @@ service=<%= service %>
 <% end -%>
 <% end -%>
 <% end -%>
-<% if @pagers.is_a?(Hash) -%>
+<% if @pagers and @pagers.is_a?(Hash) -%>
 <% if !@pagers.empty? -%>
 
 #
@@ -130,7 +130,7 @@ pager=<%= pager %>
 <% end -%>
 <% end -%>
 <% end -%>
-<% if @groups.is_a?(Hash) -%>
+<% if @groups and @groups.is_a?(Hash) -%>
 <% if !@groups.empty? -%>
 
 #
@@ -147,7 +147,7 @@ group=<%= group %>
 <% end -%>
 <% end -%>
 <% end -%>
-<% if !@include.empty? -%>
+<% if @include and !@include.empty? -%>
 
 include=<%= @include %>
 <% end -%>

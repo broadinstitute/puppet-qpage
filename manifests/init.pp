@@ -1,218 +1,135 @@
-# == Class: qpage
 #
-# This is the base qpage class that should orchestrate the installation of
-# all the other pieces that make up the software.
+# @summary This is the base qpage class that should orchestrate the installation of all the other pieces that make up the software.
 #
-# === Parameters
+# @example Basic example to include the class
+#   include qpage
+#
+# @example Include the class with options
+#
+#  class { 'qpage':
+#    config_ensure  => 'absent',
+#    package_ensure => 'absent',
+#    service_ensure => 'stopped',
+#  }
 #
 # Document parameters here.
 #
-# [*administrator*]
+# @param administrator
 #   The e-mail address of the QuickPage administrator.
 #
-# [*config_ensure*]
+# @param config_ensure
 #   Specifies the ensure parameter to the configuration file.
 #
-# [*config_group*]
+# @param config_group
 #   The group of the configuration file.
 #
-# [*config_mode*]
+# @param config_mode
 #   The file mode for the configuration file.
 #
-# [*config_owner*]
+# @param config_owner
 #   The owner of the configuration file.
 #
-# [*config_path*]
+# @param config_path
 #   The path to the configuration file.
 #
-# [*forcehostname*]
+# @param forcehostname
 #   Force the destination address to be qualified with a hostname when
 #   sending e-mail status notification to users.
 #
-# [*groups*]
+# @param groups
 #   A hash of hashes to define pager groups.  The keys of the top-level hashes
 #   are the names of the groups.  The sub hashes should contain key/value
 #   pairs with keys consisting of: text and members (which should be an array).
 #
-# [*identtimeout*]
+# @param identtimeout
 #   The number of seconds to wait for a reply before giving  up  on RFC-1413
 #   queries.
 #
-# [*include*]
+# @param include
 #   Specifies the name of another configuration file that should be processed.
 #
-# [*lockdir*]
+# @param lockdir
 #   The location of the lock directory.
 #
-# [*modems*]
+# @param modems
 #   A hash of hashes to define modems.  The keys of the top-level hashes are
 #   the names of the modem device.  The sub hashes should contain key/value
 #   pairs with keys consisting of: text, device, initcmd, and dialcmd.
 #
-# [*package_ensure*]
+# @param package_ensure
 #   Whether or not to install the package (Default: 'present')
 #
-# [*package_name*]
+# @param package_name
 #   The name of the package to install (Default: 'qpage')
 #
-# [*pagers*]
+# @param package_provider
+#   The provider used to install the package
+#
+# @param pagers
 #   A hash of hashes to define pagers.  The keys of the top-level hashes are
 #   the names of the pagers.  The sub hashes should contain key/value pairs
 #   with keys consisting of: text, pagerid, and service.
 #
-# [*pidfile*]
+# @param pidfile
 #   Specifies a file into which the server should write its process ID.
 #
-# [*queuedir*]
+# @param queuedir
 #   The location of the page queue.
 #
-# [*service_defs*]
+# @param service_defs
 #   A hash of hashes to define services.  The keys of the top-level hashes are
 #   the names of the services.  The sub hashes should contain key/value pairs
 #   with keys consisting of: text, device, dialcmd, phone, password, baudrate,
 #   parity, maxmsgsize, maxpages, maxtries, identfrom, allowpid, and msgprefix.
 #
-# [*service_enable*]
+# @param service_enable
 #   Whether or not to enable the service (Default: true)
 #
-# [*service_ensure*]
+# @param service_ensure
 #   The ensure value for the service (Default: 'running')
 #
-# [*service_name*]
+# @param service_name
 #   The name of the service (Default: 'qpage')
 #
-# [*sigfile*]
+# @param sigfile
 #   Specifies a file containing an alternate signature that QuickPage should
 #   append to e-mail status notification messages sent to page submitters.
 #
-# [*snpptimeout*]
+# @param snpptimeout
 #   The number of seconds to wait for an SNPP command before terminating the
 #   connection.
 #
-# [*synchronous*]
+# @param synchronous
 #   Whether or not queue runs are synchronized with new pages.
 #
-# === Examples
-#
-# include ::qpage
-#
-# With options:
-#
-# class { 'qpage':
-#    config_ensure  => 'absent',
-#    package_ensure => 'absent',
-#    service_ensure => 'stopped',
-# }
-#
-# === Authors
-#
-# Andrew Teixeira <teixeira@broadinstitute.org>
-#
-# === Copyright
-#
-# Copyright 2017
-#
 class qpage (
-  $administrator  = undef,
-  $config_ensure  = 'present',
-  $config_group   = undef,
-  $config_mode    = undef,
-  $config_owner   = undef,
-  $config_path    = undef,
-  $forcehostname  = undef,
-  $groups         = undef,
-  $identtimeout   = undef,
-  $include        = undef,
-  $lockdir        = undef,
-  $modems         = undef,
-  $package_ensure = 'present',
-  $package_name   = undef,
-  $pagers         = undef,
-  $pidfile        = undef,
-  $queuedir       = undef,
-  $service_enable = true,
-  $service_ensure = 'running',
-  $service_name   = undef,
-  $service_defs   = undef,
-  $sigfile        = undef,
-  $snpptimeout    = undef,
-  $synchronous    = undef,
+  String $administrator,
+  Enum['absent', 'present'] $config_ensure,
+  String $config_group,
+  String $config_mode,
+  String $config_owner,
+  String $config_path,
+  Enum['false', 'true'] $forcehostname,
+  Optional[Hash] $groups,
+  String $identtimeout,
+  Optional[String] $include,
+  Optional[String] $lockdir,
+  Hash $modems,
+  Enum['absent', 'held', 'installed', 'lastest', 'present', 'purged'] $package_ensure,
+  String $package_name,
+  String $package_provider,
+  Hash $pagers,
+  String $pidfile,
+  String $queuedir,
+  Boolean $service_enable,
+  Enum['running', 'stopped'] $service_ensure,
+  String $service_name,
+  Hash $service_defs,
+  String $sigfile,
+  String $snpptimeout,
+  String $synchronous,
 ) {
-  include ::qpage::params
-
-  # Service Settings
-  $_config_group    = pick($config_group, $qpage::params::config_group)
-  $_config_mode     = pick($config_mode, $qpage::params::config_mode)
-  $_config_owner    = pick($config_owner, $qpage::params::config_owner)
-  $_config_path     = pick($config_path, $qpage::params::config_path)
-  $_package_name    = pick($package_name, $qpage::params::package_name)
-  $package_provider = $qpage::params::package_provider
-  $_service_name    = pick($service_name, $qpage::params::service_name)
-
-  validate_re($package_ensure, '^(absent|held|installed|latest|present|purged)$')
-  validate_re($service_ensure, '^(running|stopped)$')
-
-  # Config settings
-  $config_administrator = pick_default($administrator, $qpage::params::administrator)
-  $config_forcehostname = pick_default($forcehostname, $qpage::params::forcehostname)
-  $config_groups        = pick_default($groups, $qpage::params::groups)
-  $config_identtimeout  = pick_default($identtimeout, $qpage::params::identtimeout)
-  $config_include       = pick_default($include, $qpage::params::include)
-  $config_lockdir       = pick_default($lockdir, $qpage::params::lockdir)
-  $config_modems        = pick_default($modems, $qpage::params::modems)
-  $config_pagers        = pick_default($pagers, $qpage::params::pagers)
-  $config_pidfile       = pick_default($pidfile, $qpage::params::pidfile)
-  $config_queuedir      = pick_default($queuedir, $qpage::params::queuedir)
-  $config_service_defs  = pick_default($service_defs, $qpage::params::service_defs)
-  $config_sigfile       = pick_default($sigfile, $qpage::params::sigfile)
-  $config_snpptimeout   = pick_default($snpptimeout, $qpage::params::snpptimeout)
-  $config_synchronous   = pick_default($synchronous, $qpage::params::synchronous)
-
-  if $config_administrator {
-    validate_string($config_administrator)
-  }
-  if $config_forcehostname {
-    validate_string($config_forcehostname)
-  }
-  if $config_identtimeout {
-    validate_string($config_identtimeout)
-  }
-  if $config_include {
-    validate_string($config_include)
-  }
-  if $config_lockdir {
-    validate_string($config_lockdir)
-  }
-  if $config_modems {
-    validate_hash($config_modems)
-  }
-  if $config_pagers {
-    validate_hash($config_pagers)
-  }
-  if $config_pidfile {
-    validate_string($config_pidfile)
-  }
-  if $config_queuedir {
-    validate_string($config_queuedir)
-  }
-  if $config_service_defs {
-    validate_hash($config_service_defs)
-  }
-  if $config_sigfile {
-    validate_string($config_sigfile)
-  }
-  if $config_snpptimeout {
-    validate_string($config_snpptimeout)
-  }
-  if $config_synchronous {
-    validate_string($config_synchronous)
-  }
-
-  anchor { 'qpage::begin': }
-
-  ->class { 'qpage::install': }
-  ->class { 'qpage::config': }
-  ->class { 'qpage::service': }
-
-  ->anchor { 'qpage::end': }
+  contain qpage::install
+  contain qpage::config
+  contain qpage::service
 }

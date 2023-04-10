@@ -1,0 +1,8 @@
+qpage::config_group: 'wheel'
+qpage::config_path: '/usr/local/etc/qpage.conf'
+qpage::package_name: 'qpage'
+qpage::package_provider: 'pkgng'
+qpage::pidfile: '/var/run/qpage'
+qpage::queuedir: '/var/spool/qpage'
+qpage::service_name: 'qpage'
+qpage::sigfile: '/dev/null'
