@@ -1,14 +1,5 @@
-# == Class: qpage::service
 #
-# This class takes care of all necessary services
-#
-# === Authors
-#
-# Andrew Teixeira <teixeira@broadinstitute.org>
-#
-# === Copyright
-#
-# Copyright 2017
+# @summary This class takes care of all necessary services
 #
 class qpage::service {
   if ! defined(Class['qpage']) {
@@ -16,12 +7,12 @@ class qpage::service {
   }
 
   service { 'qpage_service':
-    ensure    => $::qpage::service_ensure,
-    enable    => $::qpage::service_enable,
-    name      => $::qpage::_service_name,
+    ensure    => $qpage::service_ensure,
+    enable    => $qpage::service_enable,
+    name      => $qpage::service_name,
     subscribe => [
-      Package['qpage_package'],
       File['qpage_config'],
-    ]
+      Package['qpage_package'],
+    ],
   }
 }

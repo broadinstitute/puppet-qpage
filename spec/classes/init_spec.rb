@@ -5,10 +5,14 @@ describe 'qpage' do
     {
       kernel: 'FreeBSD',
       kernelrelease: '10.3-RELEASE',
-      operatingsystem: 'FreeBSD',
-      operatingsystemmajrelease: '10',
-      operatingsystemrelease: '10.3-RELEASE',
-      osfamily: 'FreeBSD',
+      os: {
+        family: 'FreeBSD',
+        name: 'FreeBSD',
+        release: {
+          full: '10.3-RELEASE',
+          major: '10',
+        },
+      },
     }
   end
 

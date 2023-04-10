@@ -1,7 +1,7 @@
 {
-  "name": "puppet-qpage",
+  "name": "broadinstitute-qpage",
   "version": "0.1.4",
-  "author": "Andrew Teixeira <teixeira@broadinstitute.org>",
+  "author": "broadinstitute",
   "summary": "QPage Puppet module",
   "license": "Apache-2.0",
   "source": "https://github.com/broadinstitute/puppet-qpage",
@@ -40,7 +40,7 @@
       "version_requirement": ">=4.0.0 < 7.0.0"
     }
   ],
-  "pdk-version": "1.18.0",
-  "template-url": "https://github.com/puppetlabs/pdk-templates#1.18.0",
-  "template-ref": "tags/1.18.0-0-g095317c"
+  "pdk-version": "2.6.1",
+  "template-url": "https://github.com/puppetlabs/pdk-templates#2.7.1",
+  "template-ref": "tags/2.7.1-0-g9a16c87"
 }

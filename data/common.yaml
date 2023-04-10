@@ -1,0 +1,17 @@
+qpage::administrator: ~
+qpage::config_ensure: 'present'
+qpage::config_mode: '0644'
+qpage::config_owner: 'root'
+qpage::forcehostname: 'false'
+qpage::groups: {}
+qpage::identtimeout: '0'
+qpage::include: ~
+qpage::lockdir: ~
+qpage::modems: {}
+qpage::package_ensure: 'present'
+qpage::pagers: {}
+qpage::service_defs: {}
+qpage::service_enable: true
+qpage::service_ensure: 'running'
+qpage::snpptimeout: '60'
+qpage::synchronous: 'true'
