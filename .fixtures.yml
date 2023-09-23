@@ -1,9 +1,9 @@
 ---
 fixtures:
   forge_modules:
-    stdlib:
-      repo: 'puppetlabs/stdlib'
     pkgng:
       repo: 'zleslie/pkgng'
+    stdlib:
+      repo: 'puppetlabs/stdlib'
   symlinks:
     qpage: "#{source_dir}"

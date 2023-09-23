@@ -1,3 +1,4 @@
+---
 qpage::config_group: 'wheel'
 qpage::config_path: '/usr/local/etc/qpage.conf'
 qpage::package_name: 'qpage'

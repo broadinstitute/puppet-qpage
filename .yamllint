@@ -8,5 +8,5 @@ rules:
   indentation:
     spaces: 2
   line-length:
-    max: 140
     level: warning
+    max: 140
