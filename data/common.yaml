@@ -1,3 +1,4 @@
+---
 qpage::administrator: ~
 qpage::config_ensure: 'present'
 qpage::config_mode: '0644'

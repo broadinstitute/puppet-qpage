@@ -1,3 +1,4 @@
+---
 qpage::config_group: 'root'
 qpage::config_path: '/etc/qpage.conf'
 qpage::package_name: 'qpage'
