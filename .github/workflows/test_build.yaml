@@ -8,6 +8,6 @@ name: 'test_build'
 
 jobs:
   test_build:
-    uses: broadinstitute/shared-workflows/.github/workflows/puppet-test-deploy.yml@v1.2.1
+    uses: broadinstitute/shared-workflows/.github/workflows/puppet-test-deploy.yml@v1.4.1
     with:
       puppet_package_name: broadinstitute-qpage
