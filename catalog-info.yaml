@@ -1,0 +1,20 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: puppet-qpage
+  title: puppet-qpage
+  description: "Puppet module for controlling the qpage service"
+  tags:
+    - bits
+    - bits-tools
+    - puppet
+    - qpage
+  annotations:
+    github.com/project-slug: broadinstitute/puppet-qpage
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  owner: bits-aviso
+  lifecycle: production
+  system: puppet
